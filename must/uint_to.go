@@ -3,13 +3,11 @@ package must
 import (
 	"fmt"
 	"math"
-
-	"github.com/SladeThe/checked-go/consts"
 )
 
 // UintToInt converts uint to int or panics.
 func UintToInt(v uint) int {
-	if v > consts.MaxInt {
+	if v > math.MaxInt {
 		panic(fmt.Sprintf("UintToInt(%d)", v))
 	}
 

@@ -5,8 +5,6 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/require"
-
-	"github.com/SladeThe/checked-go/consts"
 )
 
 func TestIntToInt8(t *testing.T) {
@@ -26,15 +24,15 @@ func TestIntToInt16(t *testing.T) {
 }
 
 func TestIntToInt64(t *testing.T) {
-	require.Equal(t, int64(consts.MinInt), IntToInt64(consts.MinInt))
+	require.Equal(t, int64(math.MinInt), IntToInt64(math.MinInt))
 	require.Equal(t, int64(0), IntToInt64(0))
-	require.Equal(t, int64(consts.MaxInt), IntToInt64(consts.MaxInt))
+	require.Equal(t, int64(math.MaxInt), IntToInt64(math.MaxInt))
 }
 
 func TestIntToUint(t *testing.T) {
 	require.Panics(t, func() { IntToUint(-1) })
 	require.Equal(t, uint(0), IntToUint(0))
-	require.Equal(t, uint(consts.MaxInt), IntToUint(consts.MaxInt))
+	require.Equal(t, uint(math.MaxInt), IntToUint(math.MaxInt))
 }
 
 func TestIntToUint8(t *testing.T) {
@@ -54,5 +52,5 @@ func TestIntToUint16(t *testing.T) {
 func TestIntToUint64(t *testing.T) {
 	require.Panics(t, func() { IntToUint64(-1) })
 	require.Equal(t, uint64(0), IntToUint64(0))
-	require.Equal(t, uint64(consts.MaxInt), IntToUint64(consts.MaxInt))
+	require.Equal(t, uint64(math.MaxInt), IntToUint64(math.MaxInt))
 }
